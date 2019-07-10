@@ -6,6 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
+
+    <!-- Changed the colour of the rating bar from default (colorAccent) so it dose'nt look interactive -->
+   <style name="RatingBar" parent="Theme.AppCompat">
+       <item name="colorControlNormal">@color/star_grey</item>
+       <item name="colorControlActivated">@color/star_gold</item>
+   </style>
 
 </resources>

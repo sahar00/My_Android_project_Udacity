@@ -1,12 +1,16 @@
-# Popular Movies 1
-Popular Movies (Stage 1) App is the first project for Udacity's Android Developer Nanodegree program.
-## Used libraries
-- Butter Knife
-- Picasso
-## How to use
-You are going to need an API Key to use this app. To get an API Key, Go to www.themoviedb.org and sign up. 
-Edit the Utilities/NetworkUtiles.java file. There is an **apiKey** variable. Replace the string with your own api key. 
+# Popular-Movies-Stage2
+##  My version of Popular Movies 
+### Udacity Android Developer Nanodegree project 2
+![alt text](https://github.com/pongopom/Popular-Movies-Stage2/blob/774895a6fe47d9119e813f4670a7e42c51ed443d/popMovies.jpg)
+Udacity Android Developer Project Movies Stage 2
 
-<img src="https://user-images.githubusercontent.com/23320682/41442227-ccc1df12-703e-11e8-945f-c051e1c8c593.png" width="300">
-<img src="https://user-images.githubusercontent.com/23320682/41442228-cdfeff22-703e-11e8-8629-b1cac6f0cd3b.png" width="300">
+Project Overview
+Welcome back to Popular Movies! In this second and final stage, you’ll add additional functionality to the app you built in Stage 1.
 
+You’ll add more information to your movie details view:
+
+You’ll allow users to view and play trailers ( either in the youtube app or a web browser).
+You’ll allow users to read reviews of a selected movie.
+You’ll also allow users to mark a movie as a favorite in the details view by tapping a button(star).
+You'll create a database and content provider to store the names and ids of the user's favorite movies (and optionally, the rest of the information needed to display their favorites collection while offline).
+You’ll modify the existing sorting criteria for the main view to include an additional pivot to show their favorites collection.

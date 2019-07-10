@@ -1,13 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 26
     defaultConfig {
-        applicationId "com.example.oktay.popularmovies1"
+        applicationId "com.example.android.popularmovies"
         minSdkVersion 15
-        targetSdkVersion 27
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        // Please ensure you have a valid API KEY for themoviedb.org↵to use this app
+        // A valid key will need to be entered
+        buildConfigField("String", "API_KEY", API_KEY)
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -18,20 +21,23 @@ android {
     }
 }
 
+
+repositories {
+    mavenCentral()
+}
+
+def BUTTER_KNIFE_VERSION="8.8.1" //current version on 19 feb 2018
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:preference-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile "com.jakewharton:butterknife:$BUTTER_KNIFE_VERSION"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE_VERSION"
+    compile 'com.squareup.picasso:picasso:2.5.2'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    //butterknife learned from here: http://jakewharton.github.io/butterknife/
-    //and here: https://www.youtube.com/watch?v=KeG0Rm8wyO4
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
-    implementation 'com.squareup.picasso:picasso:2.71828'
-    //I had an error after I implement picasso, and the following implementations solve the problem.
-    implementation 'com.android.support:support-annotations:27.1.1'
-    implementation 'com.android.support:exifinterface:27.1.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
