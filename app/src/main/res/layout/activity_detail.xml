@@ -1,160 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright 2018 Soojeong Shin
+  ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  -->
 
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scroll_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.android.popularmovies.DetailActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        tools:context="com.example.android.bakingapp.ui.detail.DetailActivity">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/poster_iv"
-                android:layout_width="@dimen/poster_width"
-                android:layout_height="@dimen/poster_height"
-                android:layout_marginEnd="@dimen/padding_small"
-                android:layout_marginRight="@dimen/padding_small"
-                android:layout_marginTop="@dimen/padding_medium"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/movie_content_description"
-                android:scaleType="centerCrop" />
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+                app:contentScrim="@color/colorPrimary"
+                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <Button
-                android:id="@+id/favorite_b"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="@dimen/button_width"
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/frame_detail"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="H,3:2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/iv_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/detail_content_description"/>
+
+                        <!-- ImageView for scrim gradient -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/scrim_gradient"
+                            android:contentDescription="@string/scrim_content_description"/>
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/tv_servings_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_activity"
+                        android:layout_marginEnd="@dimen/margin_activity_small"
+                        android:layout_marginRight="@dimen/margin_activity_small"
+                        android:fontFamily="@font/muli_semi_bold"
+                        android:text="@string/servings_label"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_servings" />
+
+                    <TextView
+                        android:id="@+id/tv_servings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_activity"
+                        android:layout_marginEnd="@dimen/margin_servings"
+                        android:layout_marginRight="@dimen/margin_servings"
+                        android:fontFamily="@font/muli_semi_bold"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="8" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:theme="@style/ToolbarTheme"
+                    app:layout_collapseMode="pin" />
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_layout"
+                style="@style/CategoryTab"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginLeft="@dimen/padding_small"
-                android:layout_marginStart="@dimen/padding_small"
-                android:text="@string/add_to_favorites_button_title"
-                android:textSize="@dimen/text_size_small" />
-        </LinearLayout>
+                app:tabMode="fixed" />
 
-        <TextView
-            android:id="@+id/title_tv"
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/padding_small"
-            android:layout_marginStart="@dimen/padding_small"
-            android:layout_marginTop="@dimen/padding_small"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_size_large"
-            android:textStyle="bold"
-            tools:text="title goes here" />
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-        <TextView
-            android:id="@+id/plot_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/padding_small"
-            android:layout_marginStart="@dimen/padding_small"
-            android:paddingEnd="@dimen/padding_large"
-            android:paddingLeft="@dimen/padding_large"
-            android:paddingRight="@dimen/padding_large"
-            android:paddingStart="@dimen/padding_large"
-            android:textAlignment="center"
-            tools:text="The plot goes here" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_small"
-            android:layout_weight="1"
-            android:text="@string/release_date_label"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_size_default"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/date_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            tools:text="the date goes here" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_small"
-            android:layout_weight="1"
-            android:text="@string/vote_average_label"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_size_default"
-            android:textStyle="bold" />
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:numStars="10"
-            android:stepSize="0.1"
-            android:theme="@style/RatingBar" />
-
-        <TextView
-            android:id="@+id/vote_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            tools:text="the vote goes here" />
-
-        <TextView
-            android:id="@+id/trailers_header_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_small"
-            android:layout_weight="1"
-            android:text="@string/trailers_label"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_size_default"
-            android:textStyle="bold"
-            android:visibility="gone" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/trailer_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-        </android.support.v7.widget.RecyclerView>
-
-        <TextView
-            android:id="@+id/reviews_header_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_small"
-            android:layout_weight="1"
-            android:text="@string/reviews_label"
-            android:textAlignment="center"
-            android:textSize="@dimen/text_size_default"
-            android:textStyle="bold"
-            android:visibility="gone" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/review_recycler_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_large"
-            android:layout_weight="1">
-        </android.support.v7.widget.RecyclerView>
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
-
-
-
-
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
