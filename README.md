@@ -1,32 +1,15 @@
-# Build It Bigger (Udacity Nanodegree Project - P4)
+# Make Your App Material
 
-I made this project while my Nanodegree program with Udacity.
+Transformed the user experience of a news reading app using Fundamentals Material Design guidelines.
 
-## Features of Build It Bigger
+##Material Design Used In the App:
+* Grid Layout, ViewPager and Collapsing toolbar
+* Surface, Elevation,  Ripple, and FAB
+* Palette, Background Protection and Aspect Ratio Image
+* Motion, Content Transition and Shared element transition
 
-- App connect with Google Cloud Endpoints to get the joke.
-- GCE loads data from Java library
-- App(free version) has banner ads on the bottom on the screen
-- App(free version) has interstitial ad between the MainActivity and JokeActivity (from the Android library)
-- Project has a test(testJoke) that tests if AsyncTask is indeed loading the joke.
-- Root build.gradle file contains a task that will start up the GCE dev server, run all Android tests, and shutdown the dev server.
+##Demo
+![](https://cloud.githubusercontent.com/assets/11967184/22170640/6c06d470-df35-11e6-8be9-80a8122b6551.gif)
 
-## Libraries Used
-- [Android-ObservableScrollView](https://github.com/ksoichiro/Android-ObservableScrollView)
-- [JakeWharton/butterknife](https://github.com/JakeWharton/butterknife)
 
-## License
-
-Copyright 2016 Snehasish Nayak
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+![](https://cloud.githubusercontent.com/assets/11967184/22170746/f8dc4276-df36-11e6-84a9-3e3192f06692.gif)
